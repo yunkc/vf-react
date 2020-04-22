@@ -46,7 +46,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@vf.js/launcher": "^0.3.4",
+    "@vf.js/launcher": "latest",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
