@@ -16,14 +16,12 @@ export default class App extends React.Component {
       container: this.el
     }, this.props)
 
-    console.log(vfConfig, 'vf config ')
-
     createVF(vfConfig, player => {
-      player.onReady = this.props.onReady || function() {}
-      player.onError = this.props.onError || function() {}
-      player.onDispose = this.props.onDispose || function() {}
-      player.onMessage = this.props.onMessage || function() {}
-      player.onSceneCreate = this.props.onSceneCreate || function() {}
+      player.onReady = this.props.onReady
+      player.onError = this.props.onError
+      player.onDispose = this.props.onDispose
+      player.onMessage = this.props.onMessage
+      player.onSceneCreate = this.props.onSceneCreate
       this.props.onLoadSuccess && this.props.onLoadSuccess(player)
     }, err => {
       this.props.onLoadFail && this.props.onLoadFail(err)
