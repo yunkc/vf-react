@@ -14,13 +14,14 @@ import VF from '@vf.js/react'
 
 class App extends React.Component {
   render() {
-    //more config detail please check https://vipkid-edu.github.io/vf-docs/handbook/option.html
+    //更多配置请移步参考: <a href='https://vipkid-edu.github.io/vf-docs/handbook/option.html'/> 
     return <div>
       <VF src={"Your JSON data"} onReady={() => {}} onMessage={() => {}}/>
     </div>
   }
 }
 ```
+
 ## 组件事件
 **onLoadSuccess**
 当 VF 创建成功后触发的事件，会传入一个 `vf` 对象，可以通过 `onLoadSuccess="{() => {}}"` 监听获取
