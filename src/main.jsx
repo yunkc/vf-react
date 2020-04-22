@@ -8,22 +8,25 @@ export default class App extends React.Component {
   }
 
   render() {
-    return <main ref={ el => this.el = el}>hello react</main>
+    return <main ref={ el => this.el = el}/>
   }
 
   componentDidMount() {
-    createVF({
-      src: this.props.src,
+    const vfConfig = Object.assign({}, {
       container: this.el
-    }, player => {
-      player.onReady = this.props.onReady
-      player.onError = this.props.onError
-      player.onDispose = this.props.onDispose
-      player.onMessage = this.props.onMessage
-      player.onSceneCreate = this.props.onSceneCreate
-      this.props.vfCreated && this.props.vfCreated(player)
+    }, this.props)
+
+    console.log(vfConfig, 'vf config ')
+
+    createVF(vfConfig, player => {
+      player.onReady = this.props.onReady || function() {}
+      player.onError = this.props.onError || function() {}
+      player.onDispose = this.props.onDispose || function() {}
+      player.onMessage = this.props.onMessage || function() {}
+      player.onSceneCreate = this.props.onSceneCreate || function() {}
+      this.props.onLoadSuccess && this.props.onLoadSuccess(player)
     }, err => {
-      this.props.vfCreateErr && this.props.vfCreateErr(err)
+      this.props.onLoadFail && this.props.onLoadFail(err)
     })
   }
 }
@@ -52,8 +55,8 @@ App.propTypes = {
   orientation: PropTypes.string,
   maxTouches: PropTypes.number,
   showFPS: PropTypes.bool,
-  vfCreated: PropTypes.func,
-  vfCreateErr: PropTypes.func,
+  onLoadFail: PropTypes.func,
+  onLoadSuccess: PropTypes.func,
   onReady: PropTypes.func,
   onError: PropTypes.func,
   onMessage: PropTypes.func,
