@@ -2,11 +2,12 @@
   "name": "@vf.js/react",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/index.min.js",
+  "main": "dist/main.js",
   "scripts": {
     "test": "jest",
     "dev": "webpack-dev-server --mode development --config webpack.dev.config.js",
-    "product": "webpack --config webpack.prod.config.js --mode production"
+    "product": "webpack --mode production --config webpack.prod.config.js",
+    "prepublish": "git push"
   },
   "publishConfig": {
     "access": "public"
