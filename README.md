@@ -25,8 +25,8 @@ class App extends React.Component {
 ## 组件事件
 **onLoadSuccess**
 
-当 VF 创建成功后触发的事件，会传入一个 `vf` 对象，可以通过 `onLoadSuccess="{() => {}}"` 监听获取
+当 VF 创建成功后触发的事件，会传入一个 `vf` 对象，可以通过 `onLoadSuccess="{ vfPlayer => {}}"` 监听获取
 
 **onLoadFail**
 
-当 VF 创建失败后触发的事件, 会传入一个 `errorMessage`, 可以通过 `onLoadFail="{() => {}}"` 监听获取
+当 VF 创建失败后触发的事件, 会传入一个 `errorMessage`, 可以通过 `onLoadFail="{ errorMsg => {}}"` 监听获取
