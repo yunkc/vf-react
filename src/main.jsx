@@ -8,7 +8,7 @@ export default class App extends React.Component {
   }
 
   render() {
-    return <main ref={ el => this.el = el}/>
+    return <main style="width: 100%; height: 100%" ref={ el => this.el = el}/>
   }
 
   componentDidMount() {
@@ -60,4 +60,5 @@ App.propTypes = {
   onMessage: PropTypes.func,
   onDispose: PropTypes.func,
   onSceneCreate: PropTypes.func,
+  resolution: PropTypes.number,
 }
